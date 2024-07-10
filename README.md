@@ -26,6 +26,7 @@
 
 ## 1) `Crawler.java`
 - 네이버 뉴스에서 각각의 `ul` 태그 - `li` 태그 - `div` 태그 순으로 `WebElement`를 파싱해 나가면서 원하는 요소를 저장
+- `--headless` 옵션을 통해 `Ubuntu Server` terminal에서도 `GUI` 없이 동작하도록 구현
 ## 2) `News.java`
 - 저장한 정보를 객체로 관리하기 위해 record 타입의 객체 생성
 ## 3) `JsonWriter.java`
