@@ -2,6 +2,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,9 +12,15 @@ public class Crawler {
     private static final String NAVER_LIFE_NEWS_URL = "https://news.naver.com/section/103";
     private static final String NAVER_IT_NEWS_URL = "https://news.naver.com/section/105";
 
-    private final WebDriver webDriver = new FirefoxDriver();
+    private final WebDriver webDriver;
     private final List<News> newsList = new ArrayList<>();
 
+    public Crawler(){
+        FirefoxOptions options = new FirefoxOptions();
+        options.addArguments("--headless");  // headless 모드로 설정
+
+        this.webDriver = new FirefoxDriver(options);  // 옵션을 사용하여 WebDriver 인스턴스 생성
+    }
 
     public List<News> crawlingNews() {
         openBrowser(NAVER_IT_NEWS_URL);
